@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://python.org)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
+[![Codex](https://img.shields.io/badge/Codex-Compatible-black)](https://openai.com/codex/)
 
 ---
 
@@ -62,6 +63,15 @@ mkdir -p .claude/skills
 git clone https://github.com/han12580/goddess-skill .claude/skills/create-goddess
 ```
 
+### Codex
+
+Codex 默认从 `$CODEX_HOME/skills` 发现技能；如果没有设置 `CODEX_HOME`，通常就是 `~/.codex/skills`。
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+git clone https://github.com/han12580/goddess-skill "${CODEX_HOME:-$HOME/.codex}/skills/create-goddess"
+```
+
 ### 可选依赖
 
 ```bash
@@ -72,7 +82,7 @@ pip3 install -r requirements.txt
 
 ## 使用
 
-在 Claude Code 中输入：
+在 Claude Code 或 Codex 中输入：
 
 ```text
 /create-goddess
@@ -86,6 +96,8 @@ pip3 install -r requirements.txt
 4. 可选原材料
 
 完成后，会生成一个独立 Skill，直接用 `/{slug}` 调用。
+
+如果是 Codex，安装后建议重启一次，让新 skill 被重新发现。
 
 ### 管理命令
 

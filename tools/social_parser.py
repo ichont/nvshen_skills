@@ -2,7 +2,7 @@
 """社交媒体内容解析器
 
 解析朋友圈、微博、小红书、Instagram 等社交媒体截图或导出文件。
-截图通过 Claude 的 Read 工具直接读取（支持图片），本工具处理文本导出。
+截图通过宿主代理的 Read 工具直接读取（支持图片），本工具处理文本导出。
 
 Usage:
     python3 social_parser.py --dir <screenshot_dir> --output <output_path>

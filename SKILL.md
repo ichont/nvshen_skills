@@ -9,6 +9,11 @@ allowed-tools: Read, Write, Edit, Bash
 
 > **Language / 语言**: Detect the user's first message and stay in that language. If the user speaks Chinese, answer in Chinese. If the user speaks English, answer in English.
 
+> **Skill Root / 技能目录**: In the commands below, treat `<skill-root>` as the folder containing this `SKILL.md`.
+> 
+> - In Claude Code, this is typically `.claude/skills/create-goddess`
+> - In Codex, this is typically `${CODEX_HOME:-$HOME/.codex}/skills/create-goddess`
+
 # 女神.skill 创建器
 
 ## 触发条件
@@ -43,12 +48,12 @@ allowed-tools: Read, Write, Edit, Bash
 |------|------|
 | 读取 md/txt/json | `Read` |
 | 读取截图或图片 | `Read` |
-| 解析微信聊天导出 | `Bash` -> `python3 ${CLAUDE_SKILL_DIR}/tools/wechat_parser.py` |
-| 解析 QQ 聊天导出 | `Bash` -> `python3 ${CLAUDE_SKILL_DIR}/tools/qq_parser.py` |
-| 解析社媒截图目录 | `Bash` -> `python3 ${CLAUDE_SKILL_DIR}/tools/social_parser.py` |
-| 分析照片元信息 | `Bash` -> `python3 ${CLAUDE_SKILL_DIR}/tools/photo_analyzer.py` |
-| 初始化目录 / 合并 Skill | `Bash` -> `python3 ${CLAUDE_SKILL_DIR}/tools/skill_writer.py` |
-| 版本管理 | `Bash` -> `python3 ${CLAUDE_SKILL_DIR}/tools/version_manager.py` |
+| 解析微信聊天导出 | `Bash` -> `python3 <skill-root>/tools/wechat_parser.py` |
+| 解析 QQ 聊天导出 | `Bash` -> `python3 <skill-root>/tools/qq_parser.py` |
+| 解析社媒截图目录 | `Bash` -> `python3 <skill-root>/tools/social_parser.py` |
+| 分析照片元信息 | `Bash` -> `python3 <skill-root>/tools/photo_analyzer.py` |
+| 初始化目录 / 合并 Skill | `Bash` -> `python3 <skill-root>/tools/skill_writer.py` |
+| 版本管理 | `Bash` -> `python3 <skill-root>/tools/version_manager.py` |
 
 基础目录固定为 `./goddesses/{slug}/`。
 
@@ -70,7 +75,7 @@ allowed-tools: Read, Write, Edit, Bash
 
 ### Step 1：最小信息录入
 
-参考 `${CLAUDE_SKILL_DIR}/prompts/intake.md`，优先只问 3 个问题：
+参考 `<skill-root>/prompts/intake.md`，优先只问 3 个问题：
 
 1. **代号**：她叫什么，或者你想怎么称呼她
 2. **场景 / 身份感**：例如校园学姐、办公室前辈、线上熟人、虚构角色、冷淡网友
@@ -95,7 +100,7 @@ allowed-tools: Read, Write, Edit, Bash
 
 #### 线路 A：Context Memory
 
-参考 `${CLAUDE_SKILL_DIR}/prompts/memory_analyzer.md`
+参考 `<skill-root>/prompts/memory_analyzer.md`
 
 提取：
 
@@ -108,7 +113,7 @@ allowed-tools: Read, Write, Edit, Bash
 
 #### 线路 B：Persona
 
-参考 `${CLAUDE_SKILL_DIR}/prompts/persona_analyzer.md`
+参考 `<skill-root>/prompts/persona_analyzer.md`
 
 必须把用户给出的模糊标签，翻译成可执行行为规则，例如：
 
@@ -141,7 +146,7 @@ allowed-tools: Read, Write, Edit, Bash
 先初始化目录：
 
 ```bash
-python3 ${CLAUDE_SKILL_DIR}/tools/skill_writer.py --action init --base-dir ./goddesses --slug {slug}
+python3 <skill-root>/tools/skill_writer.py --action init --base-dir ./goddesses --slug {slug}
 ```
 
 然后写入：
@@ -153,7 +158,7 @@ python3 ${CLAUDE_SKILL_DIR}/tools/skill_writer.py --action init --base-dir ./god
 最后合并：
 
 ```bash
-python3 ${CLAUDE_SKILL_DIR}/tools/skill_writer.py --action combine --base-dir ./goddesses --slug {slug}
+python3 <skill-root>/tools/skill_writer.py --action combine --base-dir ./goddesses --slug {slug}
 ```
 
 ### Step 6：后续进化
@@ -161,10 +166,10 @@ python3 ${CLAUDE_SKILL_DIR}/tools/skill_writer.py --action combine --base-dir ./
 如果用户补充“她其实不会这样说”之类的纠偏信息：
 
 1. 用 `Read` 读取现有 `memory.md` 和 `persona.md`
-2. 参考 `${CLAUDE_SKILL_DIR}/prompts/correction_handler.md`
+2. 参考 `<skill-root>/prompts/correction_handler.md`
 3. 判断属于上下文修正还是人格修正
 4. 必要时先备份版本
-5. 用 `${CLAUDE_SKILL_DIR}/prompts/merger.md` 的逻辑增量合并
+5. 用 `<skill-root>/prompts/merger.md` 的逻辑增量合并
 6. 重新生成 `SKILL.md`
 
 ---
@@ -186,7 +191,7 @@ python3 ${CLAUDE_SKILL_DIR}/tools/skill_writer.py --action combine --base-dir ./
 
 ### 2. `persona.md`
 
-必须使用分层结构，参考 `${CLAUDE_SKILL_DIR}/prompts/persona_builder.md`。
+必须使用分层结构，参考 `<skill-root>/prompts/persona_builder.md`。
 
 ### 3. `meta.json`
 

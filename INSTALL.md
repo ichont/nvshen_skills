@@ -15,6 +15,17 @@ Or install it globally:
 git clone https://github.com/han12580/goddess-skill ~/.claude/skills/create-goddess
 ```
 
+## Codex
+
+Install into Codex's default skill directory:
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+git clone https://github.com/han12580/goddess-skill "${CODEX_HOME:-$HOME/.codex}/skills/create-goddess"
+```
+
+Then restart Codex so it can discover the new skill.
+
 ## Optional dependencies
 
 ```bash

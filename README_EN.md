@@ -2,6 +2,8 @@
 
 Generate a runnable “goddess persona” AI Skill from a short brief, chat snippets, screenshots, or scene notes.
 
+Compatible with both Claude Code and Codex.
+
 ## What it does
 
 This repo turns a loose vibe such as “aloof, unreadable, barely replies, but occasionally soft” into a structured, reusable persona Skill.
@@ -22,9 +24,20 @@ It supports blended archetypes such as:
 
 ## Install
 
+### Claude Code
+
 ```bash
 mkdir -p .claude/skills
 git clone https://github.com/han12580/goddess-skill .claude/skills/create-goddess
+```
+
+### Codex
+
+Codex auto-discovers skills from `$CODEX_HOME/skills`, or `~/.codex/skills` when `CODEX_HOME` is unset.
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+git clone https://github.com/han12580/goddess-skill "${CODEX_HOME:-$HOME/.codex}/skills/create-goddess"
 ```
 
 ## Use
@@ -47,6 +60,8 @@ Generated skills are written to:
 ```text
 goddesses/{slug}/
 ```
+
+After installing into Codex, restart Codex so the new skill is picked up.
 
 ## Output files
 
