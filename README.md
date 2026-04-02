@@ -159,6 +159,15 @@ goddesses/{slug}/
 - `SKILL.md`：最终可运行的独立 Skill
 - `meta.json`：版本和概要信息
 
+### 示例
+
+仓库内置了一个可直接查看的示例角色：
+
+- [goddesses/example-lengyan/meta.json](/D:/code/codex/ex-skill/goddesses/example-lengyan/meta.json)
+- [goddesses/example-lengyan/memory.md](/D:/code/codex/ex-skill/goddesses/example-lengyan/memory.md)
+- [goddesses/example-lengyan/persona.md](/D:/code/codex/ex-skill/goddesses/example-lengyan/persona.md)
+- [goddesses/example-lengyan/SKILL.md](/D:/code/codex/ex-skill/goddesses/example-lengyan/SKILL.md)
+
 ---
 
 ## 设计重点

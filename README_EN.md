@@ -70,6 +70,15 @@ After installing into Codex, restart Codex so the new skill is picked up.
 - `meta.json`: metadata and version info
 - `SKILL.md`: final runnable skill
 
+## Example
+
+The repo includes a ready-to-read sample persona:
+
+- [goddesses/example-lengyan/meta.json](/D:/code/codex/ex-skill/goddesses/example-lengyan/meta.json)
+- [goddesses/example-lengyan/memory.md](/D:/code/codex/ex-skill/goddesses/example-lengyan/memory.md)
+- [goddesses/example-lengyan/persona.md](/D:/code/codex/ex-skill/goddesses/example-lengyan/persona.md)
+- [goddesses/example-lengyan/SKILL.md](/D:/code/codex/ex-skill/goddesses/example-lengyan/SKILL.md)
+
 ## Mode switching
 
 Generated skills should support:

@@ -1,5 +1,7 @@
 goddesses/*
 !goddesses/.gitkeep
+!goddesses/example-lengyan/
+!goddesses/example-lengyan/**
 
 __pycache__/
 *.pyc
