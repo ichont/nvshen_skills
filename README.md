@@ -202,10 +202,7 @@ goddesses/{slug}/
 
 ## 版权与来源
 
-- 本仓库的新增文案、结构重写、人格系统改造与后续修改版权归 `han12580`
 - 仓库仍保留上游 MIT 许可信息，因为它最初基于一个 MIT 开源项目演化而来
 - 为了避免虚假版权声明，本仓库不会删除上游许可痕迹，而是通过附加说明区分“上游保留部分”和“你的新增部分”
 
 更多说明见：[COPYRIGHT.md](COPYRIGHT.md)
-
-仓库地址：[han12580/goddess-skill](https://github.com/han12580/goddess-skill)
